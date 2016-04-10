@@ -5,7 +5,8 @@ TARGET_NO_BOOTLOADER := true
 # Platform
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOARD_PLATFORM_GPU := qcom-andreno530
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+# Unnecessary, bootloader passes us the proper androidboot.bootdevice path
+#TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
@@ -42,7 +43,7 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 
 # Android boot image creation
-TARGET_PREBUILT_KERNEL := device/lge/h830/Image.gz
+TARGET_PREBUILT_KERNEL := device/lge/h830/zImage-stock_recovery.gz
 TARGET_PREBUILT_DTB := device/lge/h830/dtb.img
 BOARD_CUSTOM_BOOTIMG_MK :=  device/lge/h830/bootimg.mk
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom androidboot.selinux=permissive user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1
